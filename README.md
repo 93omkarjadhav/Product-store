@@ -1,4 +1,4 @@
-<h1 align="center">MERN Crash Course 🚀</h1>
+<h2 align="center">Product Store 🚀</h2>
 
 ![Demo App](/frontend/public/screenshot-for-readme.png)
 
