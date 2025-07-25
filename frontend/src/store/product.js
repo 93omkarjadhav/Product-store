@@ -1,4 +1,5 @@
 import { create } from "zustand";
+const BACKEND_URL = "https://product-store-k7ak.onrender.com";
 
 export const useProductStore = create((set) => ({
 	products: [],
@@ -7,7 +8,7 @@ export const useProductStore = create((set) => ({
 		if (!newProduct.name || !newProduct.image || !newProduct.price) {
 			return { success: false, message: "Please fill in all fields." };
 		}
-		const res = await fetch("/api/products", {
+		const res = await fetch(`${BACKEND_URL}/api/products`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
