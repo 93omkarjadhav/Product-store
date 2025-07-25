@@ -15,7 +15,20 @@ const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true })); // 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://product-storee.netlify.app"
+]; //
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+})); 
 
 app.use(express.json()); // allows us to accept JSON data in the req.body
 
